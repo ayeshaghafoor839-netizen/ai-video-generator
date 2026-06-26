@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Generator - Create Professional Videos with AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-film"></i> AI Video Generator
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#generator" class="nav-link">Generator</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Create Professional AI Videos in Minutes</h1>
+            <p>Generate stunning videos with AI-powered narration and background music</p>
+            <button class="btn btn-primary" onclick="scrollToGenerator()">Start Creating</button>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-video"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Why Choose Our AI Video Generator?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-brain"></i>
+                <h3>AI-Powered</h3>
+                <p>Advanced AI technology generates professional videos from your prompts</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-microphone"></i>
+                <h3>Auto Voice & Sound</h3>
+                <p>Automatic text-to-speech narration with background music</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-youtube"></i>
+                <h3>YouTube Ready</h3>
+                <p>Direct upload to YouTube or download for editing</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Fully Responsive</h3>
+                <p>Works perfectly on desktop, tablet, and mobile devices</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-bolt"></i>
+                <h3>Fast Processing</h3>
+                <p>Get your video ready in minutes, not hours</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-palette"></i>
+                <h3>Full Customization</h3>
+                <p>Customize style, music, voice, and effects to your liking</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Generator Section -->
+    <section id="generator" class="generator-section">
+        <div class="generator-container">
+            <h2>Create Your AI Video</h2>
+            
+            <div class="generator-grid">
+                <!-- Left Panel: Form -->
+                <div class="form-panel">
+                    <form id="videoForm" class="video-form">
+                        <!-- Video Title -->
+                        <div class="form-group">
+                            <label for="videoTitle">Video Title</label>
+                            <input type="text" id="videoTitle" placeholder="Enter your video title" required>
+                        </div>
+
+                        <!-- Video Description/Prompt -->
+                        <div class="form-group">
+                            <label for="videoPrompt">Video Description/Prompt</label>
+                            <textarea id="videoPrompt" placeholder="Describe what you want the video to show. Be detailed and specific for best results." rows="6" required></textarea>
+                            <small>Tip: More detailed descriptions produce better results</small>
+                        </div>
+
+                        <!-- Video Duration -->
+                        <div class="form-group">
+                            <label for="videoDuration">Video Duration</label>
+                            <select id="videoDuration" required>
+                                <option value="15">15 seconds</option>
+                                <option value="30" selected>30 seconds</option>
+                                <option value="60">1 minute</option>
+                                <option value="120">2 minutes</option>
+                            </select>
+                        </div>
+
+                        <!-- Video Style -->
+                        <div class="form-group">
+                            <label for="videoStyle">Video Style</label>
+                            <select id="videoStyle" required>
+                                <option value="cinematic">Cinematic</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="educational">Educational</option>
+                                <option value="promotional">Promotional</option>
+                                <option value="animation">Animation</option>
+                                <option value="realistic">Realistic</option>
+                            </select>
+                        </div>
+
+                        <!-- Narration Voice -->
+                        <div class="form-group">
+                            <label for="voiceType">Narration Voice</label>
+                            <select id="voiceType" required>
+                                <option value="male-professional">Male Professional</option>
+                                <option value="female-professional">Female Professional</option>
+                                <option value="male-casual">Male Casual</option>
+                                <option value="female-casual">Female Casual</option>
+                                <option value="narrator">Narrator</option>
+                            </select>
+                        </div>
+
+                        <!-- Background Music -->
+                        <div class="form-group">
+                            <label for="musicType">Background Music</label>
+                            <select id="musicType" required>
+                                <option value="cinematic">Cinematic</option>
+                                <option value="upbeat">Upbeat</option>
+                                <option value="calm">Calm</option>
+                                <option value="dramatic">Dramatic</option>
+                                <option value="none">None</option>
+                            </select>
+                        </div>
+
+                        <!-- YouTube Upload -->
+                        <div class="form-group checkbox">
+                            <input type="checkbox" id="uploadToYoutube">
+                            <label for="uploadToYoutube">Upload directly to YouTube (requires authentication)</label>
+                        </div>
+
+                        <!-- YouTube Credentials (Hidden by default) -->
+                        <div id="youtubeCredentials" class="youtube-credentials" style="display: none;">
+                            <div class="form-group">
+                                <label for="youtubeTitle">YouTube Video Title</label>
+                                <input type="text" id="youtubeTitle" placeholder="Title for YouTube">
+                            </div>
+                            <div class="form-group">
+                                <label for="youtubeDescription">YouTube Video Description</label>
+                                <textarea id="youtubeDescription" placeholder="Description for YouTube" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="youtubePrivacy">Privacy Settings</label>
+                                <select id="youtubePrivacy">
+                                    <option value="private">Private</option>
+                                    <option value="unlisted">Unlisted</option>
+                                    <option value="public">Public</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-play"></i> Generate Video
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Right Panel: Preview & Status -->
+                <div class="preview-panel">
+                    <div class="preview-box">
+                        <h3>Preview & Status</h3>
+                        <div id="previewContent" class="preview-content">
+                            <div class="empty-preview">
+                                <i class="fas fa-image"></i>
+                                <p>Your video preview will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Processing Status -->
+                    <div id="statusBox" class="status-box" style="display: none;">
+                        <h3>Processing Status</h3>
+                        <div class="status-item">
+                            <span>Analyzing prompt...</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progressFill"></div>
+                            </div>
+                        </div>
+                        <p id="statusMessage" class="status-message">Initializing AI engine...</p>
+                    </div>
+
+                    <!-- Download Section -->
+                    <div id="downloadSection" class="download-section" style="display: none;">
+                        <h3>Your Video is Ready!</h3>
+                        <div class="video-info">
+                            <p><strong>Title:</strong> <span id="resultTitle"></span></p>
+                            <p><strong>Duration:</strong> <span id="resultDuration"></span></p>
+                            <p><strong>Format:</strong> MP4 (1080p)</p>
+                        </div>
+                        <div class="download-buttons">
+                            <button class="btn btn-secondary" onclick="downloadVideo()">
+                                <i class="fas fa-download"></i> Download Video
+                            </button>
+                            <button class="btn btn-primary" onclick="uploadToYouTube()">
+                                <i class="fas fa-youtube"></i> Upload to YouTube
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-down"></i> How long does it take to generate a video?</h3>
+                <p>Most videos are generated within 2-5 minutes depending on length and complexity. Longer videos may take slightly longer.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-down"></i> Can I upload directly to YouTube?</h3>
+                <p>Yes! Just check the "Upload to YouTube" option and authenticate with your YouTube account. We'll handle the upload for you.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-down"></i> What video formats are supported?</h3>
+                <p>All generated videos are in MP4 format at 1080p resolution, compatible with YouTube, TikTok, Instagram, and all major platforms.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-down"></i> Can I edit the video after generation?</h3>
+                <p>Absolutely! Download the MP4 file and edit it in any video editor like Adobe Premiere, DaVinci Resolve, or even CapCut.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-down"></i> Is there a limit to how many videos I can create?</h3>
+                <p>No limits! Create as many videos as you want. Free tier has standard processing, premium speeds things up.</p>
+            </div>
+            <div class="faq-item">
+                <h3><i class="fas fa-chevron-down"></i> Do I own the rights to the generated videos?</h3>
+                <p>Yes! All videos you create are yours to use commercially. You have full rights to post them on YouTube and other platforms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 AI Video Generator. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
